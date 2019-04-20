@@ -239,16 +239,47 @@ header {
 }
 
 /* Sticky navigation */
+@-webkit-keyframes fadeInDown {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+@keyframes fadeInDown {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
 .sticky {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background-color: rgba(255,255,255,0.98);
-    box-shadow: 0 2px 2px #efefef;
+    -webkit-box-shadow: 0 2px 2px #efefef;
+            box-shadow: 0 2px 2px #efefef;
     z-index: 999;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+    -webkit-animation-name: fadeInDown;
+            animation-name: fadeInDown;
+    -webkit-animation-duration: 0.6s;
+            animation-duration: 0.6s;
 }
 
 .sticky .main-nav {margin: 12px 0 10px 0; }
@@ -268,6 +299,18 @@ header {
 .sticky .logo-black { display: block;}
 .sticky .logo { display: none;}
 
+/* Mobile navigation */
+.mobile-nav-icon {
+    float: right;
+    cursor: pointer;
+    display: none;
+    margin-top: 35px;
+}
+
+.mobile-nav-icon i {
+    font-size: 200%;
+    color: white;
+}
 
 /* -----------------------------------------
 FEATURES
