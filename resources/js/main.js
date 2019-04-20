@@ -1,6 +1,6 @@
 $(document).ready(function () {
     //load sections below the fold
-    $('#page').load('../resources/data/home-below-fold.html');
+    $('#page').load('../omnifood/resources/data/home-below-fold.html');
 });
 
 window.onload = function () {
