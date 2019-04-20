@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    //set images corresponding to screenwidth
+    optimizeImgs();
 
     //sticky navigation
     let target = $('#features').offset().top;
@@ -71,4 +73,29 @@ $(document).ready(function () {
             icon.removeClass('ion-md-close');
         }
     })
+})
+
+function optimizeImgs() {
+    if ($(window).width() < 768) {
+        $(".section-meals img").each(function () {
+            if ($(this).attr("src").includes('mobile')) {
+                return;
+            } else {
+                $(this).attr("src", $(this).attr("src").replace("img/", "img/mobile/"));
+            }
+        });
+    } else {
+        $(".section-meals img").each(function () {
+            if ($(this).attr("src").includes('mobile')) {
+                $(this).attr("src", $(this).attr("src").replace("img/mobile/", "img/"));
+            } else {
+                return;
+            }
+        });
+    }
+
+}
+
+$(window).resize(function () {
+    optimizeImgs();
 })
