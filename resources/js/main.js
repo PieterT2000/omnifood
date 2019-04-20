@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    //load sections below the fold
+    $('#page').load('../resources/data/home-below-fold.html');
+});
+
+window.onload = function () {
     //set images corresponding to screenwidth
     optimizeImgs();
 
@@ -12,6 +17,7 @@ $(document).ready(function () {
         }
     });
 
+    //smooth scrolling when clicking on buttons on main slider
     $('.js--scroll-to-plans').click(function (e) {
         e.preventDefault();
         $('html, body').animate({ scrollTop: $('#plans').offset().top }, 800);
@@ -73,6 +79,12 @@ $(document).ready(function () {
             icon.removeClass('ion-md-close');
         }
     })
+
+}
+
+// on resize adjust images
+$(window).resize(function () {
+    optimizeImgs();
 })
 
 function optimizeImgs() {
@@ -95,7 +107,3 @@ function optimizeImgs() {
     }
 
 }
-
-$(window).resize(function () {
-    optimizeImgs();
-})
